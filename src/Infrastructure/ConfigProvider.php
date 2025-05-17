@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Infrastructure;
 
 use Domain\Doctor\DoctorRepositoryInterface;
+use Infrastructure\Hydrator\DoctorHydrator;
 use Infrastructure\Persistence\Doctor\DoctorRepository;
 use Infrastructure\Persistence\Doctor\DoctorRepositoryFactory;
 use Infrastructure\Service\DatabaseService;
@@ -16,6 +17,9 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
+                'invokables' => [
+                    DoctorHydrator::class => DoctorHydrator::class,
+                ],
                 'aliases' => [
                     DoctorRepositoryInterface::class => DoctorRepository::class,
                 ],

@@ -8,6 +8,7 @@ use Domain\Doctor\Doctor;
 use Domain\Doctor\DoctorCollection;
 use Domain\Doctor\DoctorRepositoryInterface;
 use Domain\Doctor\Specialization;
+use Infrastructure\Hydrator\DoctorHydrator;
 use Infrastructure\Service\DatabaseService;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -16,10 +17,12 @@ use PDO;
 final class DoctorRepository implements DoctorRepositoryInterface
 {
     private DatabaseService $dbService;
+    private DoctorHydrator $doctorHydrator;
 
-    public function __construct(DatabaseService $dbService)
+    public function __construct(DatabaseService $dbService, DoctorHydrator $doctorHydrator)
     {
         $this->dbService = $dbService;
+        $this->doctorHydrator = $doctorHydrator;
     }
 
     public function findById(UuidInterface $id): ?Doctor
@@ -33,12 +36,7 @@ final class DoctorRepository implements DoctorRepositoryInterface
             return null;
         }
 
-        return new Doctor(
-            Uuid::fromString($row['id']),
-            $row['name'],
-            // FUCHS:TODO: Use "find" Method from SpecializationRepository
-            new Specialization(Uuid::fromString($row['specialization_id']), 'TEST (TODO)')
-        );
+        return $this->doctorHydrator->hydrate($row);
     }
 
     public function findAll(): DoctorCollection
@@ -47,19 +45,7 @@ final class DoctorRepository implements DoctorRepositoryInterface
         $stmt = $pdo->query('SELECT * FROM doctors');
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $doctorCollection = new DoctorCollection();
-
-        foreach ($rows as $row) {
-            $doctor = new Doctor(
-                Uuid::fromString($row['id']),
-                $row['name'],
-                // FUCHS:TODO: Replace placeholder when SpecializationRepository is implemented
-                new Specialization(Uuid::fromString($row['specialization_id']), 'TEST 2 (TODO)')
-            );
-
-            $doctorCollection->add($doctor);
-        }
-        return $doctorCollection;
+        return $this->doctorHydrator->hydrateCollection($rows);
     }
 
     public function save(Doctor $doctor): void
