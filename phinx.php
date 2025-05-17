@@ -10,7 +10,7 @@ return
         'default_environment' => 'development',
         'development' => [
             'adapter' => 'pgsql',
-            'host' => 'telemedizin-db',
+            'host' => 'telemedizin-db-container',
             'name' => 'telemedizin',
             'user' => 'fuchs',
             'pass' => 'schwarzwald',
