@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '68bca9d02e693b5d970ba1343d6973148ec4b569',
+        'reference' => 'c4249282929828c4003f86b808e6e1b0475d4db5',
         'name' => 'mezzio/mezzio-skeleton',
         'dev' => true,
     ),
@@ -108,6 +108,15 @@
             'aliases' => array(),
             'reference' => '217097b785130d77cfcc58ff583cf26cd1770bf1',
             'dev_requirement' => true,
+        ),
+        'brick/math' => array(
+            'pretty_version' => '0.12.3',
+            'version' => '0.12.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../brick/math',
+            'aliases' => array(),
+            'reference' => '866551da34e9a618e64a819ee1e01c20d8a588ba',
+            'dev_requirement' => false,
         ),
         'brick/varexporter' => array(
             'pretty_version' => '0.6.0',
@@ -433,7 +442,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '68bca9d02e693b5d970ba1343d6973148ec4b569',
+            'reference' => 'c4249282929828c4003f86b808e6e1b0475d4db5',
             'dev_requirement' => false,
         ),
         'mezzio/mezzio-template' => array(
@@ -712,6 +721,24 @@
                 0 => '1.0|2.0|3.0',
             ),
         ),
+        'ramsey/collection' => array(
+            'pretty_version' => '2.1.1',
+            'version' => '2.1.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ramsey/collection',
+            'aliases' => array(),
+            'reference' => '344572933ad0181accbf4ba763e85a0306a8c5e2',
+            'dev_requirement' => false,
+        ),
+        'ramsey/uuid' => array(
+            'pretty_version' => '4.7.6',
+            'version' => '4.7.6.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ramsey/uuid',
+            'aliases' => array(),
+            'reference' => '91039bc1faa45ba123c4328958e620d382ec7088',
+            'dev_requirement' => false,
+        ),
         'revolt/event-loop' => array(
             'pretty_version' => 'v1.0.7',
             'version' => '1.0.7.0',
@@ -720,6 +747,12 @@
             'aliases' => array(),
             'reference' => '09bf1bf7f7f574453efe43044b06fafe12216eb3',
             'dev_requirement' => true,
+        ),
+        'rhumsaa/uuid' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '4.7.6',
+            ),
         ),
         'roave/security-advisories' => array(
             'pretty_version' => 'dev-master',

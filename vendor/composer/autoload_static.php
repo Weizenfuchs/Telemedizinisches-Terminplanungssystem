@@ -52,6 +52,7 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '12015786a5f2990d4244c42435db1ba0' => __DIR__ . '/..' . '/mezzio/mezzio/src/constants.php',
         '792a652af1b56b529053947cf6432b79' => __DIR__ . '/..' . '/mezzio/mezzio/src/constants.legacy.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -94,6 +95,8 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         'R' => 
         array (
             'Revolt\\' => 7,
+            'Ramsey\\Uuid\\' => 12,
+            'Ramsey\\Collection\\' => 18,
         ),
         'P' => 
         array (
@@ -165,10 +168,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         'B' => 
         array (
             'Brick\\VarExporter\\' => 18,
+            'Brick\\Math\\' => 11,
         ),
         'A' => 
         array (
-            'App\\' => 4,
             'AppTest\\' => 8,
             'Amp\\Sync\\' => 9,
             'Amp\\Socket\\' => 11,
@@ -275,6 +278,14 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         'Revolt\\' => 
         array (
             0 => __DIR__ . '/..' . '/revolt/event-loop/src',
+        ),
+        'Ramsey\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'Ramsey\\Collection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
         'Psr\\Log\\' => 
         array (
@@ -456,9 +467,9 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         array (
             0 => __DIR__ . '/..' . '/brick/varexporter/src',
         ),
-        'App\\' => 
+        'Brick\\Math\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/App',
+            0 => __DIR__ . '/..' . '/brick/math/src',
         ),
         'AppTest\\' => 
         array (

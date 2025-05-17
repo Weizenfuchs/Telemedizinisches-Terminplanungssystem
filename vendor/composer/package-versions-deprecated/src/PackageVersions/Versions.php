@@ -33,6 +33,7 @@ final class Versions
      * @internal
      */
     const VERSIONS          = array (
+  'brick/math' => '0.12.3@866551da34e9a618e64a819ee1e01c20d8a588ba',
   'brick/varexporter' => '0.6.0@af98bfc2b702a312abbcaff37656dbe419cec5bc',
   'composer/package-versions-deprecated' => '1.11.99.5@b4f54f74ef3453349c24a845d22392cd31e65f1d',
   'fig/http-message-util' => '1.1.5@9d94dc0154230ac39e5bf89398b324a86f63f765',
@@ -58,6 +59,8 @@ final class Versions
   'psr/http-message' => '2.0@402d35bcb92c70c026d1a6a9883f06b2ead23d71',
   'psr/http-server-handler' => '1.0.2@84c4fb66179be4caaf8e97bd239203245302e7d4',
   'psr/http-server-middleware' => '1.0.2@c1481f747daaa6a0782775cd6a8c26a1bf4a3829',
+  'ramsey/collection' => '2.1.1@344572933ad0181accbf4ba763e85a0306a8c5e2',
+  'ramsey/uuid' => '4.7.6@91039bc1faa45ba123c4328958e620d382ec7088',
   'webimpress/safe-writer' => '2.2.0@9d37cc8bee20f7cb2f58f6e23e05097eab5072e6',
   'webmozart/assert' => '1.11.0@11cb2199493b2f8a3b53e7f19068fc6aac760991',
   'amphp/amp' => 'v3.1.0@7cf7fef3d667bfe4b2560bc87e67d5387a7bcde9',
@@ -142,7 +145,7 @@ final class Versions
   'theseer/tokenizer' => '1.2.3@737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2',
   'vimeo/psalm' => '6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1',
   'webimpress/coding-standard' => '1.4.0@6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53',
-  'mezzio/mezzio-skeleton' => 'dev-main@f9c75454b61f4919193c23074b1865ab7b95bcc3',
+  'mezzio/mezzio-skeleton' => 'dev-main@c4249282929828c4003f86b808e6e1b0475d4db5',
 );
 
     private function __construct()
