@@ -1,0 +1,157 @@
+openapi: 3.0.4
+info:
+  title: Telemedizinische Terminplanung – API
+  version: 1.0.0
+  description: REST-API zur Verwaltung von Ärzten, Terminen und verfügbaren Zeitfenstern.
+
+paths:
+  /doctors:
+    get:
+      summary: Liste aller Ärzte mit Fachgebieten
+      responses:
+        '200':
+          description: Erfolgreiche Antwort
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Doctor'
+
+  /doctors/{id}/timeslots:
+    get:
+      summary: Verfügbare Zeitfenster eines Arztes abrufen
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID des Arztes
+      responses:
+        '200':
+          description: Liste verfügbarer Zeitfenster
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TimeSlot'
+
+  /appointments:
+    post:
+      summary: Termin buchen
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppointmentCreate'
+      responses:
+        '201':
+          description: Termin erfolgreich erstellt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+
+  /appointments/{id}:
+    get:
+      summary: Einzelnen Termin abrufen
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID des Termins
+      responses:
+        '200':
+          description: Termin gefunden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Appointment'
+
+    delete:
+      summary: Termin stornieren
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID des zu stornierenden Termins
+      responses:
+        '204':
+          description: Termin erfolgreich gelöscht
+
+components:
+  schemas:
+    Doctor:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        specialization:
+          $ref: '#/components/schemas/Specialization'
+
+    Specialization:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+
+    TimeSlot:
+      type: object
+      properties:
+        id:
+          type: integer
+        doctor_id:
+          type: integer
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        is_available:
+          type: boolean
+
+    Appointment:
+      type: object
+      properties:
+        id:
+          type: integer
+        doctor_id:
+          type: integer
+        patient_name:
+          type: string
+        patient_email:
+          type: string
+        time_slot_id:
+          type: integer
+        status:
+          type: string
+          enum: [booked, cancelled]
+
+    AppointmentCreate:
+      type: object
+      required:
+        - doctor_id
+        - time_slot_id
+        - patient_name
+        - patient_email
+      properties:
+        doctor_id:
+          type: integer
+        time_slot_id:
+          type: integer
+        patient_name:
+          type: string
+        patient_email:
+          type: string
