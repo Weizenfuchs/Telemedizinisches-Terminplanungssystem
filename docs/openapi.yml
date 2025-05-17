@@ -5,6 +5,21 @@ info:
   description: REST-API zur Verwaltung von Ärzten, Terminen und verfügbaren Zeitfenstern.
 
 paths:
+  /ping:
+    get:
+      summary: API-Status prüfen
+      description: Prüft, ob die API erreichbar ist und gibt einen Zeitstempel zurück.
+      responses:
+        '200':
+          description: Erfolgreiche Antwort mit aktueller Zeit
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ack:
+                    type: integer
+                    description: Unix-Timestamp der Serverzeit
   /doctors:
     get:
       summary: Liste aller Ärzte mit Fachgebieten
