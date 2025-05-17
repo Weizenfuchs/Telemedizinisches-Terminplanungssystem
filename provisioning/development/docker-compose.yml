@@ -1,0 +1,45 @@
+services:
+  api:
+    container_name: telemedizin-php
+    build:
+      context: ../..
+      dockerfile: provisioning/development/php/dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - voidgrid
+
+  db:
+    image: postgres:15
+    container_name: telemedizin-db
+    environment:
+      POSTGRES_USER: fuchs
+      POSTGRES_PASSWORD: "schwarzwald"
+      POSTGRES_DB: telemedizin
+    volumes:
+      - telemedizin-db-data:/var/lib/postgresql/data
+    networks:
+      - voidgrid
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: telemedizin-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - api
+    networks:
+      - voidgrid
+
+networks:
+  voidgrid:
+
+volumes:
+  telemedizin-db-data:
