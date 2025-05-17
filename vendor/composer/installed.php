@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c4249282929828c4003f86b808e6e1b0475d4db5',
+        'reference' => 'be9e87f444d8e70502f56642b946232e9b333980',
         'name' => 'mezzio/mezzio-skeleton',
         'dev' => true,
     ),
@@ -126,6 +126,51 @@
             'aliases' => array(),
             'reference' => 'af98bfc2b702a312abbcaff37656dbe419cec5bc',
             'dev_requirement' => false,
+        ),
+        'cakephp/chronos' => array(
+            'pretty_version' => '3.1.0',
+            'version' => '3.1.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cakephp/chronos',
+            'aliases' => array(),
+            'reference' => '786d69e1ee4b735765cbdb5521b9603e9b98d650',
+            'dev_requirement' => true,
+        ),
+        'cakephp/core' => array(
+            'pretty_version' => '5.2.4',
+            'version' => '5.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cakephp/core',
+            'aliases' => array(),
+            'reference' => 'a0a92ee7fbb7b7555dbf4ea7ff3fd4e779693da6',
+            'dev_requirement' => true,
+        ),
+        'cakephp/database' => array(
+            'pretty_version' => '5.2.4',
+            'version' => '5.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cakephp/database',
+            'aliases' => array(),
+            'reference' => '8c4eaecf6612274b445172b680dc47a2dad681a9',
+            'dev_requirement' => true,
+        ),
+        'cakephp/datasource' => array(
+            'pretty_version' => '5.2.4',
+            'version' => '5.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cakephp/datasource',
+            'aliases' => array(),
+            'reference' => 'f7dc4292bec0ec746db3200a5b18bb371d50dab3',
+            'dev_requirement' => true,
+        ),
+        'cakephp/utility' => array(
+            'pretty_version' => '5.2.4',
+            'version' => '5.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../cakephp/utility',
+            'aliases' => array(),
+            'reference' => '76dcd5c20e46aaf5bfdf9ad51e9f5313abffe104',
+            'dev_requirement' => true,
         ),
         'composer/package-versions-deprecated' => array(
             'pretty_version' => '1.11.99.5',
@@ -382,6 +427,15 @@
             'reference' => '3df57528b5c8e9d958515c51006825a83f76d62b',
             'dev_requirement' => false,
         ),
+        'league/container' => array(
+            'pretty_version' => '4.2.4',
+            'version' => '4.2.4.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../league/container',
+            'aliases' => array(),
+            'reference' => '7ea728b013b9a156c409c6f0fc3624071b742dec',
+            'dev_requirement' => true,
+        ),
         'league/uri' => array(
             'pretty_version' => '7.5.1',
             'version' => '7.5.1.0',
@@ -442,7 +496,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c4249282929828c4003f86b808e6e1b0475d4db5',
+            'reference' => 'be9e87f444d8e70502f56642b946232e9b333980',
             'dev_requirement' => false,
         ),
         'mezzio/mezzio-template' => array(
@@ -503,6 +557,12 @@
             'dev_requirement' => false,
             'replaced' => array(
                 0 => '1.11.99',
+            ),
+        ),
+        'orno/di' => array(
+            'dev_requirement' => true,
+            'replaced' => array(
+                0 => '~2.0',
             ),
         ),
         'phar-io/manifest' => array(
@@ -628,6 +688,21 @@
                 0 => '6.10.3',
             ),
         ),
+        'psr/clock' => array(
+            'pretty_version' => '1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/clock',
+            'aliases' => array(),
+            'reference' => 'e41a24703d4560fd0acb709162f73b8adfc3aa0d',
+            'dev_requirement' => true,
+        ),
+        'psr/clock-implementation' => array(
+            'dev_requirement' => true,
+            'provided' => array(
+                0 => '1.0',
+            ),
+        ),
         'psr/container' => array(
             'pretty_version' => '1.1.2',
             'version' => '1.1.2.0',
@@ -641,6 +716,7 @@
             'dev_requirement' => false,
             'provided' => array(
                 0 => '^1.0',
+                1 => '^2.0',
             ),
         ),
         'psr/event-dispatcher' => array(
@@ -721,6 +797,15 @@
                 0 => '1.0|2.0|3.0',
             ),
         ),
+        'psr/simple-cache' => array(
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/simple-cache',
+            'aliases' => array(),
+            'reference' => '764e0b3939f5ca87cb904f570ef9be2d78a07865',
+            'dev_requirement' => true,
+        ),
         'ramsey/collection' => array(
             'pretty_version' => '2.1.1',
             'version' => '2.1.1.0',
@@ -761,6 +846,15 @@
             'install_path' => NULL,
             'aliases' => array(),
             'reference' => '61a4c6fa210845b4f22b67c79f1833be64a34f29',
+            'dev_requirement' => true,
+        ),
+        'robmorgan/phinx' => array(
+            'pretty_version' => '0.16.8',
+            'version' => '0.16.8.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../robmorgan/phinx',
+            'aliases' => array(),
+            'reference' => '06f83d73722a66ef974a7c46214011d24f7e6b66',
             'dev_requirement' => true,
         ),
         'sebastian/cli-parser' => array(
@@ -923,6 +1017,15 @@
             'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
             'aliases' => array(),
             'reference' => '65ff2489553b83b4597e89c3b8b721487011d186',
+            'dev_requirement' => true,
+        ),
+        'symfony/config' => array(
+            'pretty_version' => 'v6.4.14',
+            'version' => '6.4.14.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/config',
+            'aliases' => array(),
+            'reference' => '4e55e7e4ffddd343671ea972216d4509f46c22ef',
             'dev_requirement' => true,
         ),
         'symfony/console' => array(
