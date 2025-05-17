@@ -7,10 +7,8 @@ namespace Infrastructure\Persistence\Doctor;
 use Domain\Doctor\Doctor;
 use Domain\Doctor\DoctorCollection;
 use Domain\Doctor\DoctorRepositoryInterface;
-use Domain\Doctor\Specialization;
 use Infrastructure\Hydrator\DoctorHydrator;
 use Infrastructure\Service\DatabaseService;
-use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 use PDO;
 
