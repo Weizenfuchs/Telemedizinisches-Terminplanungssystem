@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '3.16.0',
-        'version' => '3.16.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => '68bca9d02e693b5d970ba1343d6973148ec4b569',
         'name' => 'mezzio/mezzio-skeleton',
         'dev' => true,
     ),
@@ -292,6 +292,15 @@
             'reference' => 'a5cc009f58daa4e1b968abd65972fa3a481c22c5',
             'dev_requirement' => false,
         ),
+        'laminas/laminas-db' => array(
+            'pretty_version' => '2.20.0',
+            'version' => '2.20.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-db',
+            'aliases' => array(),
+            'reference' => '207b9ee70a8b518913c1fad688d7a64fe89a8b91',
+            'dev_requirement' => false,
+        ),
         'laminas/laminas-development-mode' => array(
             'pretty_version' => '3.13.0',
             'version' => '3.13.0.0',
@@ -326,6 +335,15 @@
             'install_path' => __DIR__ . '/../laminas/laminas-httphandlerrunner',
             'aliases' => array(),
             'reference' => 'b14da3519c650e9436e410cfedee6f860312eff9',
+            'dev_requirement' => false,
+        ),
+        'laminas/laminas-hydrator' => array(
+            'pretty_version' => '4.16.0',
+            'version' => '4.16.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laminas/laminas-hydrator',
+            'aliases' => array(),
+            'reference' => 'a162bd571924968d67ef1f43aed044b8f9c108ef',
             'dev_requirement' => false,
         ),
         'laminas/laminas-servicemanager' => array(
@@ -410,12 +428,12 @@
             'dev_requirement' => false,
         ),
         'mezzio/mezzio-skeleton' => array(
-            'pretty_version' => '3.16.0',
-            'version' => '3.16.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => '68bca9d02e693b5d970ba1343d6973148ec4b569',
             'dev_requirement' => false,
         ),
         'mezzio/mezzio-template' => array(

@@ -49,12 +49,14 @@
         "composer/package-versions-deprecated": "^1.11.99.5",
         "laminas/laminas-component-installer": "^2.6 || ^3.5",
         "laminas/laminas-config-aggregator": "^1.18",
+        "laminas/laminas-db": "^2.20",
         "laminas/laminas-diactoros": "^3.5.0",
+        "laminas/laminas-hydrator": "^4.16",
+        "laminas/laminas-servicemanager": "^3.22",
         "laminas/laminas-stdlib": "^3.20",
         "mezzio/mezzio": "^3.20.1",
-        "mezzio/mezzio-helpers": "^5.17",
-        "laminas/laminas-servicemanager": "^3.22",
-        "mezzio/mezzio-fastroute": "^3.11.0"
+        "mezzio/mezzio-fastroute": "^3.11.0",
+        "mezzio/mezzio-helpers": "^5.17"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~2.5.0",

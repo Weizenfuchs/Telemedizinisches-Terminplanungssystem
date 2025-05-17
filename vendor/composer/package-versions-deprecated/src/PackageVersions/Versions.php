@@ -38,9 +38,11 @@ final class Versions
   'fig/http-message-util' => '1.1.5@9d94dc0154230ac39e5bf89398b324a86f63f765',
   'laminas/laminas-component-installer' => '3.5.0@8752d73b5df8c368ec0bf2aff2b32e00e0ac8b1b',
   'laminas/laminas-config-aggregator' => '1.18.0@a5cc009f58daa4e1b968abd65972fa3a481c22c5',
+  'laminas/laminas-db' => '2.20.0@207b9ee70a8b518913c1fad688d7a64fe89a8b91',
   'laminas/laminas-diactoros' => '3.6.0@b068eac123f21c0e592de41deeb7403b88e0a89f',
   'laminas/laminas-escaper' => '2.17.0@df1ef9503299a8e3920079a16263b578eaf7c3ba',
   'laminas/laminas-httphandlerrunner' => '2.12.0@b14da3519c650e9436e410cfedee6f860312eff9',
+  'laminas/laminas-hydrator' => '4.16.0@a162bd571924968d67ef1f43aed044b8f9c108ef',
   'laminas/laminas-servicemanager' => '3.23.0@a8640182b892b99767d54404d19c5c3b3699f79b',
   'laminas/laminas-stdlib' => '3.20.0@8974a1213be42c3e2f70b2c27b17f910291ab2f4',
   'laminas/laminas-stratigility' => '3.13.0@3df57528b5c8e9d958515c51006825a83f76d62b',
@@ -140,7 +142,7 @@ final class Versions
   'theseer/tokenizer' => '1.2.3@737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2',
   'vimeo/psalm' => '6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1',
   'webimpress/coding-standard' => '1.4.0@6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53',
-  'mezzio/mezzio-skeleton' => '3.16.0@',
+  'mezzio/mezzio-skeleton' => 'dev-main@68bca9d02e693b5d970ba1343d6973148ec4b569',
 );
 
     private function __construct()
