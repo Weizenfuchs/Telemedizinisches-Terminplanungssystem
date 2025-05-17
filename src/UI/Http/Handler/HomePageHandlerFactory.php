@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace UI\Http\Handler;
 
 use Mezzio\Router\RouterInterface;
 use Mezzio\Template\TemplateRendererInterface;

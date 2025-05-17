@@ -70,6 +70,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
             'Webimpress\\SafeWriter\\' => 22,
             'WebimpressCodingStandard\\' => 25,
         ),
+        'U' => 
+        array (
+            'UI\\' => 3,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php84\\' => 23,
@@ -136,6 +140,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         array (
             'Kelunik\\Certificate\\' => 20,
         ),
+        'I' => 
+        array (
+            'Infrastructure\\' => 15,
+        ),
         'F' => 
         array (
             'Fig\\Http\\Message\\' => 17,
@@ -144,6 +152,7 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         ),
         'D' => 
         array (
+            'Domain\\' => 7,
             'DeepCopy\\' => 9,
             'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
         ),
@@ -202,6 +211,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         'WebimpressCodingStandard\\' => 
         array (
             0 => __DIR__ . '/..' . '/webimpress/coding-standard/src/WebimpressCodingStandard',
+        ),
+        'UI\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/UI',
         ),
         'Symfony\\Polyfill\\Php84\\' => 
         array (
@@ -399,6 +412,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         array (
             0 => __DIR__ . '/..' . '/kelunik/certificate/src',
         ),
+        'Infrastructure\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Infrastructure',
+        ),
         'Fig\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/http-message-util/src',
@@ -410,6 +427,10 @@ class ComposerStaticInitdaf8f896e53e7c62f1dacae94e7aca39
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'Domain\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Domain',
         ),
         'DeepCopy\\' => 
         array (

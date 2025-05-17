@@ -142,7 +142,7 @@ final class Versions
   'theseer/tokenizer' => '1.2.3@737eda637ed5e28c3413cb1ebe8bb52cbf1ca7a2',
   'vimeo/psalm' => '6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1',
   'webimpress/coding-standard' => '1.4.0@6f6a1a90bd9e18fc8bee0660dd1d1ce68cf9fc53',
-  'mezzio/mezzio-skeleton' => 'dev-main@68bca9d02e693b5d970ba1343d6973148ec4b569',
+  'mezzio/mezzio-skeleton' => 'dev-main@f9c75454b61f4919193c23074b1865ab7b95bcc3',
 );
 
     private function __construct()
