@@ -15,6 +15,7 @@ fi
 case $COMMAND in
   up)
     docker compose -f "$COMPOSE_FILE" up -d --build --remove-orphans
+    sleep 3
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx migrate
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx seed:run
   ;;
@@ -23,6 +24,7 @@ case $COMMAND in
   ;;
   restart)
     docker compose -f "$COMPOSE_FILE" down && docker compose -f "$COMPOSE_FILE" up -d --build --remove-orphans
+    sleep 3
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx migrate
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx seed:run
   ;;
@@ -42,6 +44,9 @@ case $COMMAND in
     docker volume rm $(docker volume ls -q) || true
     docker network rm $(docker network ls --filter "type=custom" -q) || true
     echo "Docker Cleanup komplett!"
+  ;;
+  check)
+    docker exec telemedizin-php-container vendor/bin/phinx status -e development
   ;;
   *)
     echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed} {development|stage|prod}"

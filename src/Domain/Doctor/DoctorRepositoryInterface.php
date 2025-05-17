@@ -13,7 +13,7 @@ interface DoctorRepositoryInterface
     /**
      * @return Doctor[]
      */
-    public function findAll(): array;
+    public function findAll(): DoctorCollection;
 
     public function save(Doctor $doctor): void;
 

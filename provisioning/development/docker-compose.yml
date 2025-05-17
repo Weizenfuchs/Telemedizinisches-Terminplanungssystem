@@ -10,6 +10,8 @@ services:
       - ../../:/var/www/html
     depends_on:
       - telemedizin-db-service
+    environment:
+      APP_ENV: development
     networks:
       - voidgrid
 

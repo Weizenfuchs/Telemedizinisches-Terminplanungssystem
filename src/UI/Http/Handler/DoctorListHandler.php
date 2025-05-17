@@ -9,27 +9,21 @@ use Laminas\Diactoros\Response\JsonResponse;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use UI\Http\Extractor\DoctorExtractor;
 
 final class DoctorListHandler implements RequestHandlerInterface
 {
-    public function __construct(private readonly DoctorRepositoryInterface $repository)
-    {
+    public function __construct(
+        private readonly DoctorRepositoryInterface $repository,
+        private readonly DoctorExtractor $doctorExtractor
+        ) {
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        /** @var \Domain\Doctor\DoctorCollection $doctors */
         $doctors = $this->repository->findAll();
-
-        $data = array_map(function ($doctor) {
-            return [
-                'id' => $doctor->getId()->toString(),
-                'name' => $doctor->getName(),
-                'specialization' => [
-                    'id' => $doctor->getSpecialization()->getId()->toString(),
-                    'name' => $doctor->getSpecialization()->getName(),
-                ],
-            ];
-        }, $doctors);
+        $data = $this->doctorExtractor->extractCollection($doctors);
 
         return new JsonResponse($data);
     }
