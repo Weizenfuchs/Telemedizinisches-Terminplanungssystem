@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Ui;
 
+use Domain\Doctor\DoctorRepositoryInterface;
+use Infrastructure\Persistence\Doctor\DoctorRepository;
+use Infrastructure\Persistence\Doctor\DoctorRepositoryFactory;
+use UI\Http\Handler\DoctorListHandler;
+use UI\Http\Handler\DoctorListHandlerFactory;
 use UI\Http\Handler\HomePageHandlerFactory;
 use UI\Http\Handler\PingHandler;
 use UI\Http\Handler\HomePageHandler;
@@ -24,8 +29,13 @@ class ConfigProvider
             'invokables' => [
                 PingHandler::class => PingHandler::class,
             ],
+            'aliases' => [
+                DoctorRepositoryInterface::class => DoctorRepository::class,
+            ],
             'factories'  => [
                 HomePageHandler::class => HomePageHandlerFactory::class,
+                DoctorListHandler::class => DoctorListHandlerFactory::class,
+                DoctorRepository::class => DoctorRepositoryFactory::class,
             ],
         ];
     }
