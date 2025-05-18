@@ -48,6 +48,7 @@ final class DoctorAvailabilityService
                 $appointmentEndTime = $appointment->getEndTime()->format('H:i:s');
                 $appointmentWeekday = $appointmentStart->format('l');
               
+                /*
                 echo('<pre>');
                 var_dump($timeSlotWeekDay);
                 var_dump($appointmentWeekday);
@@ -63,22 +64,20 @@ final class DoctorAvailabilityService
                 var_dump($appointmentStartTime > $timeSlotStartTime);
                 var_dump($appointmentEndTime < $timeSlotEndTime);
                 echo('</pre>');
+                */
 
+                // PROBLEM: Die alten Availabilities müssten bei weiteren Terminen am gleichen Tag weiter aufgeteilt werden
                 if ($timeSlotWeekDay == $appointmentWeekday) {
                     if ($appointmentStartTime > $timeSlotStartTime && $appointmentEndTime < $timeSlotEndTime) {
-                        var_dump('################################################################');
                         $availabilities->add(new Availability($timeSlotStart, $appointmentStart));
                         $availabilities->add(new Availability($appointmentEnd, $timeSlotEnd));
                     }
                 }
+                else {
+                    $availabilities->add(new Availability($timeSlotStart, $timeSlotEnd));
+                }
             }
         }
-
-        echo('<pre>');
-        var_dump('--------------------------------------------------------');
-        var_dump($availabilities);
-        echo('</pre>');
-        die;
 
         return $availabilities;
     }
