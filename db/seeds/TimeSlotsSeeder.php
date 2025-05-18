@@ -21,6 +21,13 @@ final class TimeSlotsSeeder extends AbstractSeed
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
                 'weekday'      => 'Monday',
                 'start_time'   => '09:00:00',
+                'end_time'     => '12:00:00',
+            ],
+            [
+                'id'           => Uuid::uuid4()->toString(),
+                'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
+                'weekday'      => 'Monday',
+                'start_time'   => '13:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
