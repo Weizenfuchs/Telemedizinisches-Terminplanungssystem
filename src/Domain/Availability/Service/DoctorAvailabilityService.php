@@ -28,53 +28,49 @@ final class DoctorAvailabilityService
         $appointments = $this->appointmentRepository->findByDoctorIdAndDateRange($doctorId, $now, $endDate);
 
         $availabilities = new AvailabilityCollection();
-
+        
         foreach ($timeSlots as $timeSlot) {
-            $timeSlotStartTime = $timeSlot->getStartTime();
-            $timeSlotEndTime = $timeSlot->getEndTime();
+            $slotStartTime = $timeSlot->getStartTime();
+            $slotEndTime = $timeSlot->getEndTime();
+            $slotWeekDay = $timeSlot->getWeekday();
 
-            $timeSlotStartDate = (new DateTimeImmutable('today'))->format('Y-m-d');
-            $timeSlotStart = new DateTimeImmutable("$timeSlotStartDate $timeSlotStartTime");
+            // Gehe jeden Tag im Zeitraum durch
+            for ($date = $now; $date <= $endDate; $date = $date->add(new DateInterval('P1D'))) {
+                // Nur TimeSlots die zum Wochentag passen
+                if ($date->format('l') !== $slotWeekDay) {
+                    continue;
+                }
 
-            $timeSlotEndDate = (new DateTimeImmutable('today'))->format('Y-m-d');
-            $timeSlotEnd = new DateTimeImmutable("$timeSlotEndDate $timeSlotEndTime");
+                $dayStart = new DateTimeImmutable($date->format('Y-m-d') . ' ' . $slotStartTime);
+                $dayEnd = new DateTimeImmutable($date->format('Y-m-d') . ' ' . $slotEndTime);
+                $freeStart = $dayStart;
 
-            $timeSlotWeekDay = $timeSlot->getWeekday();
+                // Finde alle Termine an diesem Tag im TimeSlot
+                $appointmentsOnDay = array_filter($appointments->all(), function ($appointment) use ($dayStart, $dayEnd) {
+                    return $appointment->getStartTime() < $dayEnd && $appointment->getEndTime() > $dayStart;
+                });
 
-            foreach ($appointments as $appointment) {
-                $appointmentStart = $appointment->getStartTime();
-                $appointmentStartTime = $appointment->getStartTime()->format('H:i:s');
-                $appointmentEnd = $appointment->getEndTime();
-                $appointmentEndTime = $appointment->getEndTime()->format('H:i:s');
-                $appointmentWeekday = $appointmentStart->format('l');
-              
-                /*
-                echo('<pre>');
-                var_dump($timeSlotWeekDay);
-                var_dump($appointmentWeekday);
-                echo('appointmentStartTime ');
-                var_dump($appointmentStartTime);
-                echo('timeSlotStartTime ');
-                var_dump($timeSlotStartTime);
-                echo('appointmentEndTime ');
-                var_dump($appointmentEndTime);
-                echo('timeSlotEndTime ');
-                var_dump($timeSlotEndTime);
-                echo('appointmentStart ');
-                var_dump($appointmentStartTime > $timeSlotStartTime);
-                var_dump($appointmentEndTime < $timeSlotEndTime);
-                echo('</pre>');
-                */
+                // Sortiere nach Startzeit
+                usort($appointmentsOnDay, fn($a, $b) => $a->getStartTime() <=> $b->getStartTime());
 
-                // PROBLEM: Die alten Availabilities müssten bei weiteren Terminen am gleichen Tag weiter aufgeteilt werden
-                if ($timeSlotWeekDay == $appointmentWeekday) {
-                    if ($appointmentStartTime > $timeSlotStartTime && $appointmentEndTime < $timeSlotEndTime) {
-                        $availabilities->add(new Availability($timeSlotStart, $appointmentStart));
-                        $availabilities->add(new Availability($appointmentEnd, $timeSlotEnd));
+                foreach ($appointmentsOnDay as $appointment) {
+                    $appointmentStart = $appointment->getStartTime();
+                    $appointmentEnd = $appointment->getEndTime();
+
+                    // Wenn zwischen freeStart und dem Termin noch Zeit ist, ist das eine freie Zeit
+                    if ($appointmentStart > $freeStart) {
+                        $availabilities->add(new Availability($freeStart, $appointmentStart));
+                    }
+
+                    // Verschiebe den nächsten freien Anfang
+                    if ($appointmentEnd > $freeStart) {
+                        $freeStart = $appointmentEnd;
                     }
                 }
-                else {
-                    $availabilities->add(new Availability($timeSlotStart, $timeSlotEnd));
+
+                // Nach dem letzten Termin bis zum Slot-Ende ist auch noch frei
+                if ($freeStart < $dayEnd) {
+                    $availabilities->add(new Availability($freeStart, $dayEnd));
                 }
             }
         }
