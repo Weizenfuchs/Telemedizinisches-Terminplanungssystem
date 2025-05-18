@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Phinx\Seed\AbstractSeed;
+use Ramsey\Uuid\Uuid;
 
 class DoctorsSeeder extends AbstractSeed
 {
@@ -20,14 +21,14 @@ class DoctorsSeeder extends AbstractSeed
     {
         $data = [
             [
-                'id' => self::DOCTOR_1_ID,
+                'id' => Uuid::fromString(self::DOCTOR_1_ID),
                 'name' => 'Dr. Anna Müller',
-                'specialization_id' => SpecializationsSeeder::KARDIOLOGIE_ID,
+                'specialization_id' => Uuid::fromString(SpecializationsSeeder::KARDIOLOGIE_ID),
             ],
             [
-                'id' => self::DOCTOR_2_ID,
+                'id' => Uuid::fromString(self::DOCTOR_2_ID),
                 'name' => 'Dr. Max Mustermann',
-                'specialization_id' => SpecializationsSeeder::NEUROLOGIE_ID,
+                'specialization_id' => Uuid::fromString(SpecializationsSeeder::NEUROLOGIE_ID),
             ],
         ];
 

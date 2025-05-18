@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Ui;
 
+use UI\Http\Extractor\AvailabilityExtractor;
 use UI\Http\Extractor\DoctorExtractor;
+use UI\Http\Handler\DoctorAvailabilityListHandler;
+use UI\Http\Handler\DoctorAvailabilityListHandlerFactory;
 use UI\Http\Handler\DoctorListHandler;
 use UI\Http\Handler\DoctorListHandlerFactory;
 use UI\Http\Handler\HomePageHandlerFactory;
@@ -27,10 +30,12 @@ class ConfigProvider
             'invokables' => [
                 PingHandler::class => PingHandler::class,
                 DoctorExtractor::class => DoctorExtractor::class,
+                AvailabilityExtractor::class => AvailabilityExtractor::class,
             ],
             'factories'  => [
                 HomePageHandler::class => HomePageHandlerFactory::class,
                 DoctorListHandler::class => DoctorListHandlerFactory::class,
+                DoctorAvailabilityListHandler::class => DoctorAvailabilityListHandlerFactory::class,
             ],
         ];
     }
