@@ -17,28 +17,16 @@ final class AvailabilityCollection implements IteratorAggregate
         $this->availabilities[] = $availability;
     }
 
+    /**
+     * @return Availability[]
+     */
+    public function all(): array
+    {
+        return array_values($this->availabilities);
+    }
+
     public function getIterator(): ArrayIterator
     {
-        return new ArrayIterator($this->availabilities);
-    }
-
-    public function toArray(): array
-    {
-        return array_map(
-            fn(Availability $a) => $a->toArray(),
-            $this->availabilities
-        );
-    }
-
-    public static function fromArray(array $data): self
-    {
-        $collection = new self();
-        foreach ($data as $item) {
-            $collection->add(new Availability(
-                new \DateTimeImmutable($item['start_time']),
-                new \DateTimeImmutable($item['end_time']),
-            ));
-        }
-        return $collection;
+        return new ArrayIterator($this->all());
     }
 }
