@@ -33,11 +33,19 @@ final class DoctorAvailabilityService
         for ($date = $now; $date <= $endDate; $date = $date->modify('+1 day')) {
             $weekday = (int) $date->format('N');
 
-            $dailySlots = $timeSlots->filter(fn(TimeSlot $ts) => $ts->getWeekday() === $weekday);
+            foreach ($timeSlots->getIterator() as $timeSlot) {
+                if ($timeSlot->getWeekday() !== $weekday) {
+                    continue;
+                }
 
-            foreach ($dailySlots as $timeSlot) {
-                $slotStart = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $date->format('Y-m-d').' '.$timeSlot->getStartTime()->format('H:i:s'));
-                $slotEnd = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $date->format('Y-m-d').' '.$timeSlot->getEndTime()->format('H:i:s'));
+                $slotStart = DateTimeImmutable::createFromFormat(
+                    'Y-m-d H:i:s',
+                    $date->format('Y-m-d') . ' ' . $timeSlot->getStartTime()->format('H:i:s')
+                );
+                $slotEnd = DateTimeImmutable::createFromFormat(
+                    'Y-m-d H:i:s',
+                    $date->format('Y-m-d') . ' ' . $timeSlot->getEndTime()->format('H:i:s')
+                );
 
                 $freePeriods = $this->calculateFreePeriods($slotStart, $slotEnd, $appointments);
 
@@ -49,6 +57,7 @@ final class DoctorAvailabilityService
 
         return $availability;
     }
+
 
     private function calculateFreePeriods(
         DateTimeImmutable $periodStart,
