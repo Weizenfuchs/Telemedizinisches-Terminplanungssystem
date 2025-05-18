@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Infrastructure\Persistence\Doctor;
 
 use Domain\Doctor\DoctorRepositoryInterface;
+use Domain\Doctor\SpecializationRepositoryInterface;
 use Infrastructure\Hydrator\DoctorHydrator;
 use Infrastructure\Persistence\Doctor\DoctorRepository;
 use Infrastructure\Service\DatabaseService;
@@ -16,7 +17,8 @@ final class DoctorRepositoryFactory
     {
         $dbService = $container->get(DatabaseService::class);
         $doctorHydrator = $container->get(DoctorHydrator::class);
+        $specializationRepository = $container->get(SpecializationRepositoryInterface::class);
 
-        return new DoctorRepository($dbService, $doctorHydrator);
+        return new DoctorRepository($dbService, $doctorHydrator, $specializationRepository);
     }
 }

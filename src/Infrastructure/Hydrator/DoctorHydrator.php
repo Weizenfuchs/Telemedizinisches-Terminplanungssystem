@@ -6,30 +6,46 @@ namespace Infrastructure\Hydrator;
 
 use Domain\Doctor\Doctor;
 use Domain\Doctor\DoctorCollection;
-use Domain\Doctor\Specialization;
 use Ramsey\Uuid\Uuid;
 
 final class DoctorHydrator
 {
-    public function hydrate(array $data): Doctor
+    public function __construct(private SpecializationHydrator $specializationHydrator) {
+    }
+    
+    public function hydrate(array $row): Doctor
     {
+        $specializationData = [
+            'id' => $row['specialization_id'],
+            'name' => $row['specialization_name'],
+        ];
+        $specialization = $this->specializationHydrator->hydrate($specializationData);
+
         return new Doctor(
-            Uuid::fromString($data['id']),
-            $data['name'],
-            new Specialization(
-                Uuid::fromString($data['specialization_id']),
-                $data['specialization_name'] ?? 'Unbekannt'
-            )
+            Uuid::fromString($row['id']),
+            $row['name'],
+            $specialization
         );
     }
 
-    public function hydrateCollection(array $dataCollection): DoctorCollection
+    public function hydrateCollection(array $rows): DoctorCollection
     {
         $doctorCollection = new DoctorCollection();
 
-        foreach ($dataCollection as $data) {
-            $doctorCollection->add($this->hydrate($data));
-            
+        foreach ($rows as $row) {
+            $specializationData = [
+                'id' => $row['specialization_id'],
+                'name' => $row['specialization_name'],
+            ];
+            $specialization = $this->specializationHydrator->hydrate($specializationData);
+
+            $doctorCollection->add(
+                new Doctor(
+                    Uuid::fromString($row['id']),
+                    $row['name'],
+                    $specialization
+                )
+            );
         }
 
         return $doctorCollection;
