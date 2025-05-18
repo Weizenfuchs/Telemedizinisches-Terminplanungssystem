@@ -22,8 +22,8 @@ class AppointmentsSeeder extends AbstractSeed
                 'doctor_id' => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
                 'patient_name' => 'Max Mustermann',
                 'patient_email' => 'max.mustermann@example.com',
-                'start_time' => '2025-05-25 10:00:00',
-                'end_time' => '2025-05-25 11:00:00',
+                'start_time' => '2025-05-23 10:00:00',
+                'end_time' => '2025-05-23 11:00:00',
                 'status' => 'booked',
             ],
             [
