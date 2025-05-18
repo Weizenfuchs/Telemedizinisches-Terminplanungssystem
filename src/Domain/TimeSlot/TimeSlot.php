@@ -14,26 +14,32 @@ final class TimeSlot
         private readonly UuidInterface $doctorId,
         private readonly string $startTime,
         private readonly string $endTime,
+        private readonly string $weekday,
     ) {
     }
 
-    public function id(): UuidInterface
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
 
-    public function doctorId(): UuidInterface
+    public function getDoctorId(): UuidInterface
     {
         return $this->doctorId;
     }
 
-    public function startTime(): DateTimeImmutable
+    public function getStartTime(): string
     {
         return $this->startTime;
     }
 
-    public function endTime(): DateTimeImmutable
+    public function getEndTime(): string
     {
         return $this->endTime;
+    }
+
+    public function getWeekday(): string
+    {
+        return $this->weekday;
     }
 }

@@ -17,6 +17,7 @@ final class TimeSlotHydrator
             Uuid::fromString($row['doctor_id']),
             $row['start_time'],
             $row['end_time'],
+            $row['weekday'],
         );
     }
 

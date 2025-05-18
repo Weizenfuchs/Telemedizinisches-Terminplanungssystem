@@ -15,7 +15,7 @@ final class TimeSlotCollection implements IteratorAggregate
 
     public function add(TimeSlot $timeSlot): void
     {
-        $this->timeSlot[$timeSlot->id()->toString()] = $timeSlot;
+        $this->timeSlot[$timeSlot->getId()->toString()] = $timeSlot;
     }
 
     public function remove(UuidInterface $id): void

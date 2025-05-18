@@ -6,14 +6,6 @@ use Ramsey\Uuid\Uuid;
 
 final class TimeSlotsSeeder extends AbstractSeed
 {
-    public const SUNDAY = 0;
-    public const MONDAY = 1;
-    public const TUESDAY = 2;
-    public const WEDNESDAY = 3;
-    public const THURSDAY = 4;
-    public const FRIDAY = 5;
-    public const SATTURDAY = 6;
-
     public function getDependencies(): array
     {
         return [
@@ -27,49 +19,49 @@ final class TimeSlotsSeeder extends AbstractSeed
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
-                'weekday'      => self::MONDAY,
+                'weekday'      => 'Monday',
                 'start_time'   => '09:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
-                'weekday'      => self::TUESDAY,
+                'weekday'      => 'Tuesday',
                 'start_time'   => '09:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
-                'weekday'      => self::WEDNESDAY,
+                'weekday'      => 'Wednesday',
                 'start_time'   => '09:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
-                'weekday'      => self::THURSDAY,
+                'weekday'      => 'Thursday',
                 'start_time'   => '09:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_1_ID),
-                'weekday'      => self::FRIDAY,
+                'weekday'      => 'Friday',
                 'start_time'   => '09:00:00',
                 'end_time'     => '15:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_2_ID),
-                'weekday'      => self::MONDAY,
+                'weekday'      => 'Monday',
                 'start_time'   => '10:00:00',
                 'end_time'     => '12:00:00',
             ],
             [
                 'id'           => Uuid::uuid4()->toString(),
                 'doctor_id'    => Uuid::fromString(DoctorsSeeder::DOCTOR_2_ID),
-                'weekday'      => self::WEDNESDAY,
+                'weekday'      => 'Tuesday',
                 'start_time'   => '15:00:00',
                 'end_time'     => '16:00:00',
             ]
