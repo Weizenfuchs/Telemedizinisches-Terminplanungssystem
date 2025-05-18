@@ -47,6 +47,10 @@ case $COMMAND in
   ;;
   check)
     docker exec telemedizin-php-container vendor/bin/phinx status -e development
+    echo "Timeslots"
+    docker exec -it telemedizin-db-container psql -U fuchs -d telemedizin -c "SELECT * FROM timeslots LIMIT 5;"
+    echo "Appointments"
+    docker exec -it telemedizin-db-container psql -U fuchs -d telemedizin -c "SELECT * FROM appointments LIMIT 5;"
   ;;
   *)
     echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed} {development|stage|prod}"

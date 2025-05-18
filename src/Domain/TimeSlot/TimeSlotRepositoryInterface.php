@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Domain\TimeSlot;
 
-use DateTimeImmutable;
-use Ramsey\Uuid\Rfc4122\UuidInterface;
+use Ramsey\Uuid\UuidInterface;
 
 interface TimeSlotRepositoryInterface
 {
-    public function findByDoctorIdAndDateRange(UuidInterface $id, DateTimeImmutable $startDate, DateTimeImmutable $endDate): TimeSlotCollection;
+    public function findByDoctorId(UuidInterface $id): TimeSlotCollection;
 }

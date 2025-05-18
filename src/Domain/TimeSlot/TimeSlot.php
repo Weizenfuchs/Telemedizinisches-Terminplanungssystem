@@ -12,8 +12,8 @@ final class TimeSlot
     public function __construct(
         private readonly UuidInterface $id,
         private readonly UuidInterface $doctorId,
-        private readonly DateTimeImmutable $startTime,
-        private readonly DateTimeImmutable $endTime,
+        private readonly string $startTime,
+        private readonly string $endTime,
     ) {
     }
 

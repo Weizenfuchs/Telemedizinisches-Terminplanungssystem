@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Infrastructure\Persistence\TimeSlot;
 
-use DateTimeImmutable;
 use Domain\TimeSlot\TimeSlotCollection;
 use Domain\TimeSlot\TimeSlotRepositoryInterface;
 use Infrastructure\Hydrator\TimeSlotHydrator;
@@ -20,24 +19,14 @@ final class TimeSlotRepository implements TimeSlotRepositoryInterface
     ) {
     }
 
-    public function findByDoctorIdAndDateRange(
-        UuidInterface $doctorId,
-        DateTimeImmutable $startDate,
-        DateTimeImmutable $endDate
+    public function findByDoctorId(
+        UuidInterface $doctorId
     ): TimeSlotCollection {
         $pdo = $this->dbService->getConnection();
-        $stmt = $pdo->prepare(
-            'SELECT * FROM timeslots 
-            WHERE doctor_id = :doctor_id 
-            AND start_time >= :start 
-            AND end_time <= :end 
-            ORDER BY start_time ASC'
-        );
+        $stmt = $pdo->prepare('SELECT * FROM timeslots WHERE doctor_id = :doctor_id');
 
         $stmt->execute([
-            'doctor_id' => $doctorId->toString(),
-            'start' => $startDate->format('Y-m-d H:i:s'),
-            'end' => $endDate->format('Y-m-d H:i:s'),
+            'doctor_id' => $doctorId->toString()
         ]);
 
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
