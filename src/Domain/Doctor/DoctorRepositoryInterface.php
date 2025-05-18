@@ -10,9 +10,6 @@ interface DoctorRepositoryInterface
 {
     public function findById(UuidInterface $id): ?Doctor;
 
-    /**
-     * @return Doctor[]
-     */
     public function findAll(): DoctorCollection;
 
     public function save(Doctor $doctor): void;
