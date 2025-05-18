@@ -2,6 +2,8 @@
 
 Dieses Projekt ist ein Backend-Service zur Verwaltung von Ärzten und Terminen im Rahmen eines telemedizinischen Terminplanungssystems. Es basiert auf PHP mit Domain-Driven Design (DDD) und nutzt Laminas Mezzio, Phinx für Migrationen und einen PostgreSQL-Datenbank-Backend.
 
+Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`
+
 ---
 
 # Aktueller Stand
