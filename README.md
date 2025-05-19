@@ -40,7 +40,7 @@ Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`
 1. Repository klonen
 
 ```bash
-git clone https://github.com/dein-github-username/telemedizinisches-terminplanungssystem.git
+git clone https://github.com/Weizenfuchs/Telemedizinisches-Terminplanungssystem.git
 cd telemedizinisches-terminplanungssystem
 ```
 
