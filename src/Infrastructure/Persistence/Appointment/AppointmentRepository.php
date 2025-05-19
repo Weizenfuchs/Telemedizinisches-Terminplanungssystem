@@ -31,6 +31,7 @@ final class AppointmentRepository implements AppointmentRepositoryInterface
             WHERE doctor_id = :doctor_id 
             AND start_time >= :start 
             AND end_time <= :end 
+            AND status = :booked
             ORDER BY start_time ASC'
         );
 
@@ -38,6 +39,7 @@ final class AppointmentRepository implements AppointmentRepositoryInterface
             'doctor_id' => $doctorId->toString(),
             'start' => $startDate->format('Y-m-d H:i:s'),
             'end' => $endDate->format('Y-m-d H:i:s'),
+            'booked' => 'booked'
         ]);
 
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
