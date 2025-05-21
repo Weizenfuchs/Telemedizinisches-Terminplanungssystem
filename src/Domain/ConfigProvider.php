@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Domain;
 
+use Domain\Appointment\Service\CreateAppointment;
+use Domain\Appointment\Service\CreateAppointmentFactory;
 use Domain\Availability\Service\DoctorAvailabilityService;
 use Domain\Availability\Service\DoctorAvailabilityServiceFactory;
 
@@ -15,6 +17,7 @@ class ConfigProvider
             'dependencies' => [
                 'factories' => [
                     DoctorAvailabilityService::class => DoctorAvailabilityServiceFactory::class,
+                    CreateAppointment::class => CreateAppointmentFactory::class,
                 ],
             ],
         ];

@@ -6,6 +6,8 @@ namespace Ui;
 
 use UI\Http\Extractor\AvailabilityExtractor;
 use UI\Http\Extractor\DoctorExtractor;
+use UI\Http\Handler\CreateAppointmentHandler;
+use UI\Http\Handler\CreateAppointmentHandlerFactory;
 use UI\Http\Handler\DoctorAvailabilityListHandler;
 use UI\Http\Handler\DoctorAvailabilityListHandlerFactory;
 use UI\Http\Handler\DoctorListHandler;
@@ -36,6 +38,7 @@ class ConfigProvider
                 HomePageHandler::class => HomePageHandlerFactory::class,
                 DoctorListHandler::class => DoctorListHandlerFactory::class,
                 DoctorAvailabilityListHandler::class => DoctorAvailabilityListHandlerFactory::class,
+                CreateAppointmentHandler::class => CreateAppointmentHandlerFactory::class,
             ],
         ];
     }

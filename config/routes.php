@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use UI\Http\Handler\CreateAppointmentHandler;
 use UI\Http\Handler\DoctorAvailabilityListHandler;
 use UI\Http\Handler\DoctorListHandler;
 use UI\Http\Handler\PingHandler;
@@ -15,4 +16,5 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get('/ping', PingHandler::class, 'api.ping');
     $app->get('/doctors', DoctorListHandler::class, 'doctor.list');
     $app->get('/doctors/{id}/timeslots', DoctorAvailabilityListHandler::class);
+    $app->post('/appointments', CreateAppointmentHandler::class, 'appointment.create');
 };
