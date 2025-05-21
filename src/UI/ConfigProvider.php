@@ -14,6 +14,8 @@ use UI\Http\Handler\DoctorAvailabilityListHandler;
 use UI\Http\Handler\DoctorAvailabilityListHandlerFactory;
 use UI\Http\Handler\DoctorListHandler;
 use UI\Http\Handler\DoctorListHandlerFactory;
+use UI\Http\Handler\GetAppointmentHandler;
+use UI\Http\Handler\GetAppointmentHandlerFactory;
 use UI\Http\Handler\HomePageHandlerFactory;
 use UI\Http\Handler\PingHandler;
 use UI\Http\Handler\HomePageHandler;
@@ -42,6 +44,7 @@ class ConfigProvider
                 DoctorAvailabilityListHandler::class => DoctorAvailabilityListHandlerFactory::class,
                 CreateAppointmentHandler::class => CreateAppointmentHandlerFactory::class,
                 DeleteAppointmentHandler::class => DeleteAppointmentHandlerFactory::class,
+                GetAppointmentHandler::class => GetAppointmentHandlerFactory::class,
             ],
         ];
     }

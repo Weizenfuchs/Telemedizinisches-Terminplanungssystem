@@ -6,6 +6,7 @@ use UI\Http\Handler\CreateAppointmentHandler;
 use UI\Http\Handler\DeleteAppointmentHandler;
 use UI\Http\Handler\DoctorAvailabilityListHandler;
 use UI\Http\Handler\DoctorListHandler;
+use UI\Http\Handler\GetAppointmentHandler;
 use UI\Http\Handler\PingHandler;
 use Mezzio\Application;
 use Mezzio\MiddlewareFactory;
@@ -19,4 +20,5 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->get('/doctors/{id}/timeslots', DoctorAvailabilityListHandler::class);
     $app->post('/appointments', CreateAppointmentHandler::class, 'appointment.create');
     $app->delete('/appointments/{id}', DeleteAppointmentHandler::class, 'appointment.delete');
+    $app->get('/appointments/{id}', GetAppointmentHandler::class, 'appointment.get');
 };
