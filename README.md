@@ -9,7 +9,8 @@ Eine projektbezogene Postman Collection ist zu finden unter `https://jotility.po
 
 # Aktueller Stand
 
-- Endpunkt für das buchen eines Termins implementiert: POST `/appointments`
+- Endpunkt für das Stornieren eines Termins implementiert: DELETE `/appointments`
+- Endpunkt für das Buchen eines Termins implementiert: POST `/appointments`
 - Endpunkt für das Abrufen der Verfügbarkeiten eines Doktors implementiert: GET `/doctors/:doctorId/timeslots`
 - Endpunkt für das Abrufen sämtlicher Doktoren und Ihrer Fachgebiete implementiert: GET `/doctors`
 - Domain-Modelle für `Doctor` und `Specialization` mit Hydratoren und Repositories
