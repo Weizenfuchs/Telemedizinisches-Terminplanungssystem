@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'be9e87f444d8e70502f56642b946232e9b333980',
+        'reference' => 'a5b2e26994e6f7a2ca416bb8a2506594091c6d67',
         'name' => 'mezzio/mezzio-skeleton',
         'dev' => true,
     ),
@@ -496,7 +496,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'be9e87f444d8e70502f56642b946232e9b333980',
+            'reference' => 'a5b2e26994e6f7a2ca416bb8a2506594091c6d67',
             'dev_requirement' => false,
         ),
         'mezzio/mezzio-template' => array(
@@ -715,8 +715,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '^2.0',
+                0 => '^2.0',
+                1 => '^1.0',
             ),
         ),
         'psr/event-dispatcher' => array(
