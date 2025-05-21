@@ -37,7 +37,7 @@ case $COMMAND in
   seed)
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx seed:run
   ;;
-  prune)
+  kill_all)
     docker stop $(docker ps -q) || true
     docker rm -f $(docker ps -a -q) || true
     docker rmi -f $(docker images -q) || true

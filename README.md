@@ -89,7 +89,7 @@ Das Skript `./dev.sh` dient zur einfachen Verwaltung der Docker-Entwicklungsumge
 - `logs` - Zeigt die Logs der Container in Echtzeit an.
 - `migrate` - Führt nur die Datenbankmigrationen aus.
 - `seed` - Führt nur die Seeder-Skripte aus.
-- `prune` - Bereinigt Docker komplett (Container, Images, Volumes, Netzwerke).
+- `kill_everything` - VORSICHT! Bereinigt Docker vollständig (Entfernt sämtliche Container, Images, Volumes und Netzwerke).
 - `check` - Zeigt den Status der Migrationen an.
 
 `<Umgebung>` bestimmt die Docker-Compose-Datei, z.B.:
