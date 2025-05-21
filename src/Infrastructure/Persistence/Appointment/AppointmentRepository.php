@@ -21,6 +21,23 @@ final class AppointmentRepository implements AppointmentRepositoryInterface
     ) {
     }
 
+    public function findById(UuidInterface $id): ?Appointment
+    {
+        $pdo = $this->dbService->getConnection();
+
+        $stmt = $pdo->prepare('SELECT * FROM appointments WHERE id = :id');
+        $stmt->execute(['id' => $id->toString()]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$row) {
+            return null;
+        }
+
+        return $this->appointmentHydrator->hydrate($row);
+    }
+
+
     public function findByDoctorIdAndDateRange(
         UuidInterface $doctorId,
         DateTimeImmutable $startDate,
@@ -64,6 +81,19 @@ final class AppointmentRepository implements AppointmentRepositoryInterface
             'start' => $appointment->getStartTime()->format('Y-m-d H:i:s'),
             'end' => $appointment->getEndTime()->format('Y-m-d H:i:s'),
             'status' => $appointment->getStatus(),
+        ]);
+    }
+    
+    public function delete(Appointment $appointment): void
+    {
+        $pdo = $this->dbService->getConnection();
+        $stmt = $pdo->prepare('
+            DELETE FROM appointments
+            WHERE id = :id
+        ');
+
+        $stmt->execute([
+            'id' => $appointment->getId()->toString(),
         ]);
     }
 }
