@@ -2,14 +2,15 @@
 
 Dieses Projekt ist ein Backend-Service zur Verwaltung von Ärzten und Terminen im Rahmen eines telemedizinischen Terminplanungssystems. Es basiert auf PHP mit Domain-Driven Design (DDD) und nutzt Laminas Mezzio, Phinx für Migrationen und einen PostgreSQL-Datenbank-Backend.
 
-Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`
+Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`. Zum Einsehen dieser kann https://editor.swagger.io/ benutzt werden.
 Eine projektbezogene Postman Collection ist zu finden unter `https://jotility.postman.co/workspace/Telemedizinisches-Terminplanung~ed31eddb-0e5b-4deb-9df8-21b27e96f039/collection/9973932-34725a98-2fef-4389-80d9-165d784feefd?action=share&creator=9973932`
 
 ---
 
 # Aktueller Stand
 
-- Endpunkt für das Stornieren eines Termins implementiert: DELETE `/appointments`
+- Endpunkt für das Abrufen eines Termins implementiert: GET `appointment/:appointment_id`
+- Endpunkt für das Stornieren eines Termins implementiert: DELETE `/appointments/:appointment_id`
 - Endpunkt für das Buchen eines Termins implementiert: POST `/appointments`
 - Endpunkt für das Abrufen der Verfügbarkeiten eines Doktors implementiert: GET `/doctors/:doctorId/timeslots`
 - Endpunkt für das Abrufen sämtlicher Doktoren und Ihrer Fachgebiete implementiert: GET `/doctors`
