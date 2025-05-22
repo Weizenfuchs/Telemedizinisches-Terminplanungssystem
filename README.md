@@ -91,6 +91,7 @@ Das Skript `./dev.sh` dient zur einfachen Verwaltung der Docker-Entwicklungsumge
 - `seed` - Führt nur die Seeder-Skripte aus.
 - `kill_everything` - VORSICHT! Bereinigt Docker vollständig (Entfernt sämtliche Container, Images, Volumes und Netzwerke).
 - `check` - Zeigt den Status der Migrationen an.
+- `test` - Führt PHPUnit Tests aus.
 
 `<Umgebung>` bestimmt die Docker-Compose-Datei, z.B.:
 - `development`

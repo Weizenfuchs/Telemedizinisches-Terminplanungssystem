@@ -27,7 +27,7 @@ final class DeleteAppointmentHandler implements RequestHandlerInterface
         }
 
         try {
-            $this->deleteAppointment->delete($id);
+            $this->deleteAppointment->delete(Uuid::fromString($id));
         } catch (AppointmentNotFoundException $e) {
             return new JsonResponse(['error' => 'Appointment not found'], 404);
         } catch (\Throwable $e) {

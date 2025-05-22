@@ -52,6 +52,9 @@ case $COMMAND in
     echo "Appointments"
     docker exec -it telemedizin-db-container psql -U fuchs -d telemedizin -c "SELECT * FROM appointments LIMIT 5;"
   ;;
+  test)
+    docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phpunit
+  ;;
   *)
     echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed} {development|stage|prod}"
     exit 1
