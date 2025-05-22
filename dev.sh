@@ -37,14 +37,6 @@ case $COMMAND in
   seed)
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx seed:run
   ;;
-  kill_all)
-    docker stop $(docker ps -q) || true
-    docker rm -f $(docker ps -a -q) || true
-    docker rmi -f $(docker images -q) || true
-    docker volume rm $(docker volume ls -q) || true
-    docker network rm $(docker network ls --filter "type=custom" -q) || true
-    echo "Docker Cleanup komplett!"
-  ;;
   check)
     docker exec telemedizin-php-container vendor/bin/phinx status -e development
     echo "Timeslots"
@@ -56,7 +48,7 @@ case $COMMAND in
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phpunit
   ;;
   *)
-    echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed} {development|stage|prod}"
+    echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed|check|test} {development|stage|prod}"
     exit 1
     ;;
 esac
