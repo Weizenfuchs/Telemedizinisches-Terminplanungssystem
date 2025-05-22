@@ -4,6 +4,8 @@ Dieses Projekt ist ein Backend-Service zur Verwaltung von Ärzten und Terminen i
 
 Zur Trennung der Umgebungen nutzt dieses Projekt Docker Container und ein dev.sh script setup um diese zu orchestrieren.
 
+Für Unit-Tests wird PHPUnit verwendet. Tests können mit folgendem Befehl ausgeführt werden: `./dev.sh test development`.
+
 Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`. Zum Einsehen dieser kann https://editor.swagger.io/ benutzt werden.
 
 
