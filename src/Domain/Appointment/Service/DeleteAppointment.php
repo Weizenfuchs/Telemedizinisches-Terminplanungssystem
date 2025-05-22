@@ -6,7 +6,7 @@ namespace Domain\Appointment\Service;
 
 use Domain\Appointment\AppointmentRepositoryInterface;
 use Domain\Appointment\Exception\AppointmentNotFoundException;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 final class DeleteAppointment
 {
@@ -14,9 +14,9 @@ final class DeleteAppointment
         private AppointmentRepositoryInterface $appointmentRepository
     ) {}
 
-    public function delete(string $appointmentId): void
+    public function delete(UuidInterface $appointmentId): void
     {
-        $appointment = $this->appointmentRepository->findById(Uuid::fromString($appointmentId));
+        $appointment = $this->appointmentRepository->findById($appointmentId);
 
         if ($appointment === null) {
             throw new AppointmentNotFoundException("Appointment not found");

@@ -37,7 +37,7 @@ case $COMMAND in
   seed)
     docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phinx seed:run
   ;;
-  prune)
+  kill_all)
     docker stop $(docker ps -q) || true
     docker rm -f $(docker ps -a -q) || true
     docker rmi -f $(docker images -q) || true
@@ -51,6 +51,9 @@ case $COMMAND in
     docker exec -it telemedizin-db-container psql -U fuchs -d telemedizin -c "SELECT * FROM timeslots LIMIT 5;"
     echo "Appointments"
     docker exec -it telemedizin-db-container psql -U fuchs -d telemedizin -c "SELECT * FROM appointments LIMIT 5;"
+  ;;
+  test)
+    docker compose -f "$COMPOSE_FILE" exec telemedizin-api-service vendor/bin/phpunit
   ;;
   *)
     echo "Usage: ./dev.sh {up|down|restart|logs|migrate|seed} {development|stage|prod}"

@@ -4,6 +4,8 @@ Dieses Projekt ist ein Backend-Service zur Verwaltung von Ärzten und Terminen i
 
 Zur Trennung der Umgebungen nutzt dieses Projekt Docker Container und ein dev.sh script setup um diese zu orchestrieren.
 
+Für Unit-Tests wird PHPUnit verwendet. Tests können mit folgendem Befehl ausgeführt werden: `./dev.sh test development`.
+
 Die API-Dokumentation ist zu finden unter `/docs/openapi.yml`. Zum Einsehen dieser kann https://editor.swagger.io/ benutzt werden.
 
 
@@ -89,8 +91,9 @@ Das Skript `./dev.sh` dient zur einfachen Verwaltung der Docker-Entwicklungsumge
 - `logs` - Zeigt die Logs der Container in Echtzeit an.
 - `migrate` - Führt nur die Datenbankmigrationen aus.
 - `seed` - Führt nur die Seeder-Skripte aus.
-- `prune` - Bereinigt Docker komplett (Container, Images, Volumes, Netzwerke).
+- `kill_everything` - VORSICHT! Bereinigt Docker vollständig (Entfernt sämtliche Container, Images, Volumes und Netzwerke).
 - `check` - Zeigt den Status der Migrationen an.
+- `test` - Führt PHPUnit Tests aus.
 
 `<Umgebung>` bestimmt die Docker-Compose-Datei, z.B.:
 - `development`
